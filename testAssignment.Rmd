@@ -64,13 +64,13 @@ Data$i_ypsocweb = recode_factor(Data$i_ypsocweb, `1` = "1", `2` = "0", missing =
 Produce code that calculates probabilities of having an account on social media (i.e. the mean of your new binary variable produced in the previous problem) by age and gender. 
 
 ```{r}
-lm(formula = i_ypsocweb ~ Age + i_sex, data = Data)
+lm(formula = i_ypsocweb ~ Age + as.factor(i_sex_dv), data = Data)
 
 ```
 
 ## Write short interpretation (10 points)
 
-Write two or three sentences interpreting your findings above.
+WIth each year of age the kids are 0.09064 less likely to have a social media account. Females are also 0.06108 less likely to have a social media account.
 
 ## Visualise results (20 points)
 

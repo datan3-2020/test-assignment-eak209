@@ -146,7 +146,7 @@ previous problem) by age and
     gender.
 
 ``` r
-lm(formula = i_ypsocweb ~ Age + i_sex, data = Data)
+lm(formula = i_ypsocweb ~ Age + as.factor(i_sex_dv), data = Data)
 ```
 
     ## Warning in model.response(mf, "numeric"): using type = "numeric" with a
@@ -156,15 +156,19 @@ lm(formula = i_ypsocweb ~ Age + i_sex, data = Data)
 
     ## 
     ## Call:
-    ## lm(formula = i_ypsocweb ~ Age + i_sex, data = Data)
+    ## lm(formula = i_ypsocweb ~ Age + as.factor(i_sex_dv), data = Data)
     ## 
     ## Coefficients:
-    ## (Intercept)          Age        i_sex  
-    ##     2.44726     -0.08043     -0.06180
+    ##               (Intercept)                        Age  
+    ##                   2.38838                   -0.08064  
+    ## as.factor(i_sex_dv)female  
+    ##                  -0.06108
 
 ## Write short interpretation (10 points)
 
-Write two or three sentences interpreting your findings above.
+WIth each year of age the kids are 0.09064 less likely to have a social
+media account. Females are also 0.06108 less likely to have a social
+media account.
 
 ## Visualise results (20 points)
 
