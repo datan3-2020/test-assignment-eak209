@@ -21,6 +21,7 @@ First, we need to read the data into R. For this assignment, I ask you to use da
 2) The youth self-completion questionnaire from Wave 9: https://www.understandingsociety.ac.uk/sites/default/files/downloads/documentation/mainstage/questionnaire/wave-9/w9-gb-youth-self-completion-questionnaire.pdf
 3) The codebook for the file: https://www.understandingsociety.ac.uk/documentation/mainstage/dataset-documentation/datafile/youth/wave/9
 
+View(Data$i_sex_dv)
 
 ```{r}
 library(tidyverse)
@@ -53,20 +54,39 @@ We want to create a new binary variable for having an account on social media so
 
 ```{r}
 Data$i_sex_dv = recode_factor(Data$i_sex_dv, `1` = "male", `2` = "female")
-Data$i_ypsocweb = recode_factor(Data$i_ypsocweb, `1` = "1", `2` = "0", missing = "missing")
+Data$i_ypsocweb = recode_factor(Data$i_ypsocweb, `1` = "1", `2` = "0", .missing = "missing")
+
+Data$i_ypsocweb1 = recode_factor(Data$i_ypsocweb, `1` = "1", `2` = "0", missing = "missing")
+
+
+
 
 
 
 ```
+
+data$sex <- NA
+data$sex[Data$i_ypsocweb == 1] <- 1
+data$sex[Data$i_ypsocweb == 2] <- 0
+table(data$sex)
+
 
 ## Calculate means (10 points)
 
 Produce code that calculates probabilities of having an account on social media (i.e. the mean of your new binary variable produced in the previous problem) by age and gender. 
 
+?glm
+
 ```{r}
-lm(formula = i_ypsocweb ~ Age + as.factor(i_sex_dv), data = Data)
+
+
 
 ```
+
+## ;m is for contionous dependent variables. use glm instead; Thats a categorical
+## check use of glm; check use of logodds
+## glm()
+## g
 
 ## Write short interpretation (10 points)
 

@@ -28,7 +28,7 @@ will need the following documents:
 3)  The codebook for the file:
     <https://www.understandingsociety.ac.uk/documentation/mainstage/dataset-documentation/datafile/youth/wave/9>
 
-<!-- end list -->
+View(Data$i\_sex\_dv)
 
 ``` r
 library(tidyverse)
@@ -128,41 +128,35 @@ Data$i_sex_dv = recode_factor(Data$i_sex_dv, `1` = "male", `2` = "female")
     ## specify replacements exhaustively or supply .default
 
 ``` r
-Data$i_ypsocweb = recode_factor(Data$i_ypsocweb, `1` = "1", `2` = "0", missing = "missing")
+Data$i_ypsocweb = recode_factor(Data$i_ypsocweb, `1` = "1", `2` = "0", .missing = "missing")
 ```
 
-    ## Warning in recode.numeric(.x, !(!(!values)), .default = .default, .missing
-    ## = .missing): NAs introduced by coercion
-    
-    ## Warning in recode.numeric(.x, !(!(!values)), .default = .default, .missing
-    ## = .missing): Unreplaced values treated as NA as .x is not compatible.
-    ## Please specify replacements exhaustively or supply .default
+    ## Warning: Unreplaced values treated as NA as .x is not compatible. Please
+    ## specify replacements exhaustively or supply .default
+
+``` r
+Data$i_ypsocweb1 = recode_factor(Data$i_ypsocweb, `1` = "1", `2` = "0", missing = "missing")
+```
+
+data\(sex <- NA data\)sex\[Data$i\_ypsocweb == 1\] \<- 1
+data\(sex[Data\)i\_ypsocweb == 2\] \<- 0 table(data$sex)
 
 ## Calculate means (10 points)
 
 Produce code that calculates probabilities of having an account on
 social media (i.e. the mean of your new binary variable produced in the
 previous problem) by age and
-    gender.
+gender.
 
-``` r
-lm(formula = i_ypsocweb ~ Age + as.factor(i_sex_dv), data = Data)
-```
+?glm
 
-    ## Warning in model.response(mf, "numeric"): using type = "numeric" with a
-    ## factor response will be ignored
+## ;m is for contionous dependent variables. use glm instead; Thats a categorical
 
-    ## Warning in Ops.factor(y, z$residuals): '-' not meaningful for factors
+## check use of glm; check use of logodds
 
-    ## 
-    ## Call:
-    ## lm(formula = i_ypsocweb ~ Age + as.factor(i_sex_dv), data = Data)
-    ## 
-    ## Coefficients:
-    ##               (Intercept)                        Age  
-    ##                   2.38838                   -0.08064  
-    ## as.factor(i_sex_dv)female  
-    ##                  -0.06108
+## glm()
+
+## g
 
 ## Write short interpretation (10 points)
 
